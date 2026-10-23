@@ -1,0 +1,5 @@
+# Copie para .dev.vars (ignorado pelo Git) para rodar `npm run dev` localmente.
+# A chave real da Anthropic fica só no .dev.vars da sua máquina e no segredo da Cloudflare.
+ANTHROPIC_API_KEY=coloque-sua-chave-aqui
+# Segredo de TESTE publicado pela Cloudflare (sempre aprova). Em produção, use o segredo real.
+TURNSTILE_SECRET=1x0000000000000000000000000000000AA

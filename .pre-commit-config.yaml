@@ -1,0 +1,30 @@
+# Hooks locais: rodam a cada `git commit`. Instale uma vez por clone com `pre-commit install`.
+# Revisões fixadas por SHA (o comentário mostra a versão).
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: 3e8a8703264a2f4a69428a0aa4dcb512790b2c8c # frozen: v6.0.0
+    hooks:
+      - id: check-added-large-files
+        args: ["--maxkb=500"]
+      - id: check-merge-conflict
+      - id: check-yaml
+      - id: check-json
+      - id: detect-private-key
+      - id: end-of-file-fixer
+      - id: trailing-whitespace
+      - id: mixed-line-ending
+        args: ["--fix=lf"]
+
+  - repo: https://github.com/gitleaks/gitleaks
+    rev: 83d9cd684c87d95d656c1458ef04895a7f1cbd8e # frozen: v8.30.1
+    hooks:
+      - id: gitleaks
+
+  - repo: local
+    hooks:
+      - id: npm-check
+        name: npm run check (typecheck, testes, prettier)
+        entry: npm run check
+        language: system
+        pass_filenames: false
+        files: \.(ts|js|json|md|ya?ml|toml)$

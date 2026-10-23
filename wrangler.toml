@@ -1,0 +1,15 @@
+name = "codigoiagil-agente"
+main = "src/index.ts"
+compatibility_date = "2026-10-01"
+send_metrics = false # sem telemetria do wrangler
+
+# Sem logs de requisição com conteúdo: o código não registra as conversas.
+[observability]
+enabled = false
+
+[vars]
+ALLOWED_ORIGIN = "https://codigoiagil.github.io"
+
+# Segredos (NUNCA neste arquivo). Cadastre com:
+#   npx wrangler secret put ANTHROPIC_API_KEY
+#   npx wrangler secret put TURNSTILE_SECRET
